@@ -53,4 +53,16 @@ app.get('/teste', (request, response)=>{
     response.send("Teste Ok.");
 })
 
+//rotas CRUD da tabela Editora
+app.get("/editora", async(request, response)=>{
+    const respostaBanco = await Editora.findAll();
+    response.json(respostaBanco)
+});
+
+app.get("/editora/:id", async(request, response)=>{
+    const id = request.params.id;
+    const respostaBanco = await Editora.findByPk(id);
+    response.json(respostaBanco)
+});
+
 app.listen(3000, ()=>{console.log("Servidor rodando.")});
