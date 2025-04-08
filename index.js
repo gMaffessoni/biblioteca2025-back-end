@@ -65,4 +65,30 @@ app.get("/editora/:id", async(request, response)=>{
     response.json(respostaBanco)
 });
 
+app.post("/editora", async(request, response)=>{
+    //const nomeeditora = request.body.nomeeditora;
+    //const cnpj = request.body.cnpj;
+    //const endereco = request.body.endereco;
+
+    const respostaBanco = await Editora.create(request.body);
+    response.json(respostaBanco)
+});
+
+app.put("/editora/:id", async(request, response)=>{
+    const nomeeditora = request.body.nomeeditora;
+    const cnpj = request.body.cnpj;
+    const endereco = request.body.endereco;
+    const ideditora = request.params.id;
+
+    const respostaBanco = await Editora.update({nomeeditora, cnpj, endereco},{where:{ideditora}});
+    response.json(respostaBanco)
+});
+
+app.delete("/editora/:id", async(request, response)=>{
+  const ideditora = request.params.id;
+
+  const respostaBanco = await Editora.destroy({where:{ideditora}});
+  response.json(respostaBanco)
+});
+
 app.listen(3000, ()=>{console.log("Servidor rodando.")});
