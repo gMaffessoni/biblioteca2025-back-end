@@ -31,7 +31,7 @@ async function alterar (request, response) {
     const ideditora = request.params.ideditora;
     const idcategoria = request.params.idcategoria;
 
-    const respostaBanco = await Autor.update({titulo, edicao, paginas, publicacao, foto, resumo, ativo, condicaofisica, emprestado, ideditora, idcategoria},{where:{idlivro}});
+    const respostaBanco = await Livro.update({titulo, edicao, paginas, publicacao, foto, resumo, ativo, condicaofisica, emprestado, ideditora, idcategoria},{where:{idlivro}});
     response.json(respostaBanco)
 }
 
@@ -42,4 +42,10 @@ async function excluir (request, response) {
     response.json(respostaBanco)
   }
 
-export default {listar, selecionar, inserir, alterar, excluir}
+async function disponiveis (request, response) {
+  
+    const respostaBanco = await Livro.findAll({where:{ativo: true, emprestado: false}});
+    response.json(respostaBanco)
+  }
+
+export default {listar, selecionar, inserir, alterar, excluir, disponiveis}
