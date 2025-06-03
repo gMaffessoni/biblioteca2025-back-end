@@ -10,6 +10,8 @@ import ListaEditora from './paginas/ListaEditora';
 import FormEditora from './paginas/FormEditora';
 import ListaLivro from './paginas/ListaLivro';
 import FormLivro from './paginas/FormLivro';
+import ListaUsuario from './paginas/ListaUsuario';
+import FormUsuario from './paginas/FormUsuario';
 
 function App() {
   return (
@@ -34,6 +36,10 @@ function App() {
             <Route path='/listalivro' element={<ListaLivro/>}/>
             <Route path='/cadastrolivro' element={<FormLivro/>}/>
             <Route path='/cadastrolivro/:id' element={<FormLivro/>}/>
+
+            <Route path='/listausuario' element={<ListaUsuario/>}/>
+            <Route path='/cadastrousuario' element={<FormUsuario/>}/>
+            <Route path='/cadastrousuario/:id' element={<FormUsuario/>}/>
 
             <Route path='*' element={<Home/>}/>
           </Routes>
