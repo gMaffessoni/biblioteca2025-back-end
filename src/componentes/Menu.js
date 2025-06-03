@@ -25,6 +25,7 @@ export default function Menu(){
                             <li><a className="dropdown-item" href="/listacategoria">Categorias</a></li>
                             <li><a className="dropdown-item" href="/listaeditora">Editoras</a></li>
                             <li><a className="dropdown-item" href="/listausuario">Usuários</a></li>
+                            <li><a className="dropdown-item" href="/listafuncionario">Funcionários</a></li>
                         </ul>
                         </li>
                     </ul>
