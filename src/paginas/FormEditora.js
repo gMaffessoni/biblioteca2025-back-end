@@ -63,45 +63,66 @@ export default function FormEditora (){
     }, []);
 
     return(
-        <>
-            <TituloCadastro id={id} titulo="editora" />
-
-            <form>
-                { id && (
+            <>
+                <TituloCadastro id={id} titulo="editora" />
+    
+                <form>
+                    { id && (
+                        <div className="mb-3">
+                            <label className="form-label">
+                            ID
+                            </label>
+                            <input
+                            type="email"
+                            className="form-control"
+                            value={id}
+                            />
+                        </div>
+                    )}
                     <div className="mb-3">
                         <label className="form-label">
-                        ID
+                        Nome da editora
                         </label>
                         <input
-                        type="email"
+                        type="text"
                         className="form-control"
-                        value={id}
+                        value={nomeeditora}
+                        onChange={(evento)=>setNomeEditora(evento.target.value)}
                         />
                     </div>
-                )}
-                <div className="mb-3">
-                    <label className="form-label">
-                    Nome da editora
-                    </label>
-                    <input
-                    type="text"
-                    className="form-control"
-                    value={nomeeditora}
-                    onChange={(evento)=>setNomeEditora(evento.target.value)}
-                    />
-                </div>
-                <button type="button" className="btn btn-primary" onClick={() => salvar()}>
-                    Salvar
-                </button>
-                <button type="button" className="btn btn-secondary" onClick= {() => voltar()}>
-                    Cancelar
-                </button>
-                { id && (
-                    <button type="button" className="btn btn-danger" onClick={() => excluir()}>
-                        Deletar
+                    <div className="mb-3">
+                        <label className="form-label">
+                        CNPJ
+                        </label>
+                        <input
+                        type="text"
+                        className="form-control"
+                        value={cnpj}
+                        onChange={(evento)=>setCnpj(evento.target.value)}
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <label className="form-label">
+                        Endereço
+                        </label>
+                        <textarea className="form-control" 
+                        value={endereco} 
+                        onChange={(evento)=>setEndereco(evento.target.value)}>
+                        </textarea>
+                    </div>
+                    
+                    <button type="button" className="btn btn-primary" onClick={() => salvar()}>
+                        Salvar
                     </button>
-                )}
-            </form>
-        </>
-    );
-};
+                    <button type="button" className="btn btn-secondary" onClick= {() => voltar()}>
+                        Cancelar
+                    </button>
+                    { id && (
+                        <button type="button" className="btn btn-danger" onClick={() => excluir()}>
+                            Deletar
+                        </button>
+                    )}
+                </form>
+            </>
+        );
+    };

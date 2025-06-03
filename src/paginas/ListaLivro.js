@@ -7,7 +7,7 @@ export default function ListaEditora (){
     const [dados, setDados] = useState([]);
 
     const listar = async () => {
-        let { data } = await axios.get(`http://localhost:4000/editora`);
+        let { data } = await axios.get(`http://localhost:4000/livro`);
         console.log(data);
         setDados(data);
     }
@@ -18,8 +18,8 @@ export default function ListaEditora (){
 
     return(
         <>
-            <TituloLista titulo="Editoras" descricao="Gerencie aqui as editoras dos livros da biblioteca."
-            rota="/cadastroeditora"/>
+            <TituloLista titulo="Livros" descricao="Gerencie aqui os livros da biblioteca."
+            rota="/cadastrolivro"/>
             <div className="container">
                 <div className="row">
                     <div className="col">
@@ -28,9 +28,7 @@ export default function ListaEditora (){
                             <tr>
                             <th scope="col"></th>
                             <th scope="col">ID</th>
-                            <th scope="col">Editora</th>
-                            <th scope="col">CNPJ</th>
-                            <th scope="col">Endereço</th>
+                            <th scope="col">Livro</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -41,8 +39,6 @@ export default function ListaEditora (){
                                 </td>
                                 <td>{d.ideditora}</td>
                                 <td>{d.nomeeditora}</td>
-                                <td>{d.cnpj}</td>
-                                <td>{d.endereco}</td>
                             </tr>
                             ))}
                             
