@@ -2,7 +2,7 @@ import TituloLista from "../componentes/TituloLista";
 import axios from "axios";
 import { useState, useEffect} from "react";
 
-export default function ListaEditora (){
+export default function ListaLivro (){
     //Delarando uma variável useState
     const [dados, setDados] = useState([]);
 
@@ -29,16 +29,27 @@ export default function ListaEditora (){
                             <th scope="col"></th>
                             <th scope="col">ID</th>
                             <th scope="col">Livro</th>
+                            <th scope="col">Edição</th>
+                            <th scope="col">Páginas</th>
+                            <th scope="col">Ativo</th>
+                            <th scope="col">Emprestado</th>
+                            <th scope="col">Foto</th>
+                            
                             </tr>
                         </thead>
                         <tbody>
                             { dados.map( (d, i)=>(
                             <tr>
                                 <td>
-                                    <a className='btn btn-primary' href={`/cadastroeditora/${d.ideditora}`}>Alterar</a>
+                                    <a className='btn btn-primary' href={`/cadastrolivro/${d.idlivro}`}>Alterar</a>
                                 </td>
-                                <td>{d.ideditora}</td>
-                                <td>{d.nomeeditora}</td>
+                                <td>{d.idlivro}</td>
+                                <td>{d.titulo}</td>
+                                <td>{d.edicao}</td>
+                                <td>{d.paginas}</td>
+                                <td>{d.ativo}</td>
+                                <td>{d.emprestado}</td>
+                                <td><img className= 'img-thumbnail' src={d.foto} style={{width:"90px"}}/></td>
                             </tr>
                             ))}
                             
