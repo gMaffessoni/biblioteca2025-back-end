@@ -14,6 +14,7 @@ import ListaUsuario from './paginas/ListaUsuario';
 import FormUsuario from './paginas/FormUsuario';
 import ListaFuncionario from './paginas/ListaFuncionario';
 import FormFuncionario from './paginas/FormFuncionario';
+import ListaEmprestimo from './paginas/ListaEmprestimo';
 
 function App() {
   return (
@@ -46,6 +47,8 @@ function App() {
             <Route path='/listafuncionario' element={<ListaFuncionario/>}/>
             <Route path='/cadastrofuncionario' element={<FormFuncionario/>}/>
             <Route path='/cadastrofuncionario/:id' element={<FormFuncionario/>}/>
+
+            <Route path='/listaemprestimo' element={<ListaEmprestimo/>}/>
 
             <Route path='*' element={<Home/>}/>
           </Routes>
